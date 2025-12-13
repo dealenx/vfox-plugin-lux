@@ -114,8 +114,8 @@ function util.getDownloadInfo(version)
     
     if osType == "windows" then
         if arch == "amd64" then
-            -- Use ZIP for portable installation
-            filename = "lx_" .. version .. "_x64.zip"
+            -- Windows uses MSI, will be extracted in PostInstall via msiexec
+            filename = "lx_" .. version .. "_x64_en-US.msi"
             url = baseUrl .. "/" .. filename
         else
             return nil, "Unsupported architecture for Windows: " .. arch
@@ -128,8 +128,13 @@ function util.getDownloadInfo(version)
             return nil, "Unsupported architecture for macOS: " .. arch
         end
     elseif osType == "linux" then
-        if arch == "amd64" or arch == "arm64" then
-            filename = "lx_" .. version .. "_" .. archString .. ".tar.gz"
+        if arch == "amd64" then
+            -- Linux x64 uses portable tar.gz
+            filename = "lx-x86_64-unknown-linux-gnu.tar.gz"
+            url = baseUrl .. "/" .. filename
+        elseif arch == "arm64" then
+            -- Linux arm64 uses portable tar.gz
+            filename = "lx-aarch64-unknown-linux-gnu.tar.gz"
             url = baseUrl .. "/" .. filename
         else
             return nil, "Unsupported architecture for Linux: " .. arch
@@ -169,6 +174,13 @@ function util.findBinary(rootPath)
         rootPath .. "/usr/bin/" .. binaryName,
     }
     
+    -- Windows MSI extracted paths (msiexec extracts to extracted/PFiles/lux-cli/)
+    if osType == "windows" then
+        table.insert(paths, rootPath .. "/extracted/PFiles/lux-cli/" .. binaryName)
+        table.insert(paths, rootPath .. "/PFiles/lux-cli/" .. binaryName)
+        table.insert(paths, rootPath .. "/lux-cli/" .. binaryName)
+    end
+    
     -- macOS app bundle specific paths
     if osType == "darwin" then
         table.insert(paths, rootPath .. "/lux-cli.app/Contents/MacOS/lx")
@@ -201,9 +213,9 @@ function util.getBinDirectory(rootPath)
     if osType == "darwin" then
         return rootPath .. "/lux-cli.app/Contents/MacOS"
     elseif osType == "windows" then
-        return rootPath
+        return rootPath .. "/extracted/PFiles/lux-cli"
     else
-        return rootPath .. "/bin"
+        return rootPath
     end
 end
 
