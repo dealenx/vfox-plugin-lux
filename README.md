@@ -14,6 +14,8 @@ vfox add --source https://github.com/lumen-oss/vfox-plugin-lux/releases/download
 
 ## Usage
 
+### With vfox
+
 ```bash
 # List available versions
 vfox search lux
@@ -29,6 +31,40 @@ vfox use -g lux@0.22.2
 
 # Use a version in current session
 vfox use lux@0.22.2
+```
+
+### With mise
+
+[mise](https://mise.jdx.dev/) is compatible with vfox plugins. You can use this plugin with mise as well:
+
+```bash
+# Add the plugin from local path or GitHub
+mise plugins install lux https://github.com/lumen-oss/vfox-plugin-lux
+
+# List available versions
+mise ls-remote lux
+
+# Install a specific version
+mise install lux@0.22.2
+
+# Install the latest version
+mise install lux@latest
+
+# Use a version globally
+mise use -g lux@0.22.2
+
+# Use a version in current project
+mise use lux@0.22.2
+
+# Run lx with a specific version
+mise exec lux@0.22.2 -- lx --version
+```
+
+You can also add lux to your `.mise.toml`:
+
+```toml
+[tools]
+lux = "0.22.2"
 ```
 
 ## Supported Platforms
