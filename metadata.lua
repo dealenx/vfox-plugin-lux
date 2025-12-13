@@ -3,15 +3,15 @@ PLUGIN = {}
 
 --- !!! MUST BE SET !!!
 --- Plugin name
-PLUGIN.name = "your plugin name"
+PLUGIN.name = "lux"
 --- Plugin version
-PLUGIN.version = "0.0.1"
+PLUGIN.version = "0.1.0"
 --- Plugin homepage
-PLUGIN.homepage = "https://github.com/version-fox/vfox-plugin-template"
+PLUGIN.homepage = "https://github.com/lumen-oss/vfox-plugin-lux"
 --- Plugin license, please choose a correct license according to your needs.
 PLUGIN.license = "Apache 2.0"
 --- Plugin description
-PLUGIN.description = "your plugin description"
+PLUGIN.description = "vfox plugin for Lux - A fast and efficient Lua package manager"
 
 
 --- !!! OPTIONAL !!!
@@ -21,7 +21,7 @@ NOTE:
     If the plugin is not compatible with the current vfox version,
     vfox will not load the plugin and prompt the user to upgrade vfox.
  --]]
-PLUGIN.minRuntimeVersion = "0.3.0"
+PLUGIN.minRuntimeVersion = "0.4.0"
 --[[
 NOTE:
     If configured, vfox will check for updates to the plugin at this address,
@@ -33,9 +33,11 @@ NOTE:
     you can set this address to the manifest file address, so that the plugin can be updated automatically.
 
  --]]
-PLUGIN.manifestUrl = "https://github.com/version-fox/vfox-plugin-template/releases/download/manifest/manifest.json"
+PLUGIN.manifestUrl = "https://github.com/lumen-oss/vfox-plugin-lux/releases/download/manifest/manifest.json"
 -- Some things that need user to be attention!
 PLUGIN.notes = {
+    "The binary is named 'lx', not 'lux'.",
+    "On Windows, you may need to enable a x64 hosted MSVC toolset for full functionality.",
 }
 
 --- List legacy configuration filenames for determining the specified version of the tool.

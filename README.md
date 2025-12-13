@@ -1,15 +1,66 @@
-# vfox-plugin-template
+# vfox-plugin-lux
 
-This is a [vfox plugin](https://vfox.dev/plugins/create/howto.html) template with CI that package and publish the plugin.
+A [vfox](https://vfox.dev/) plugin for managing [Lux](https://github.com/lumen-oss/lux) - a fast and efficient Lua package manager.
+
+## Installation
+
+```bash
+# Add the plugin
+vfox add lux
+
+# Or install from source
+vfox add --source https://github.com/lumen-oss/vfox-plugin-lux/releases/download/latest/vfox-plugin-lux.zip
+```
 
 ## Usage
 
-1. [Generate](https://github.com/version-fox/vfox-plugin-template/generate) a new repository based on this template.
-2. Configure [metadata](https://github.com/version-fox/vfox-plugin-template/blob/main/metadata.lua) information
-3. To develop your plugin further, please read [the plugins create section of the docs](https://vfox.dev/plugins/create/howto.html).
+```bash
+# List available versions
+vfox search lux
 
+# Install a specific version
+vfox install lux@0.22.2
 
-## How to publish?
+# Install the latest version
+vfox install lux@latest
 
-1. Push a new tag to the repository which name is `vX.Y.Z` (X.Y.Z is the version number).
-2. The CI will automatically package, then publish [release](https://github.com/version-fox/vfox-plugin-template/releases/tag/v0.0.1) and publish [manifest](https://github.com/version-fox/vfox-plugin-template/releases/tag/manifest).
+# Use a version globally
+vfox use -g lux@0.22.2
+
+# Use a version in current session
+vfox use lux@0.22.2
+```
+
+## Supported Platforms
+
+| Platform | Architecture          | Status |
+| -------- | --------------------- | ------ |
+| Windows  | x64                   | ✅     |
+| Linux    | x64                   | ✅     |
+| Linux    | arm64                 | ✅     |
+| macOS    | x64 (Intel)           | ✅     |
+| macOS    | arm64 (Apple Silicon) | ✅     |
+
+## Notes
+
+- The Lux CLI binary is named `lx`, not `lux`
+- On Windows, you may need to [enable a x64 hosted MSVC toolset](https://learn.microsoft.com/en-us/cpp/build/how-to-enable-a-64-bit-visual-cpp-toolset-on-the-command-line?view=msvc-170) for full functionality
+- On macOS, since Lux is not notarized, you may need to configure Gatekeeper to allow usage
+
+## Verification
+
+After installation, verify it works:
+
+```bash
+lx help
+```
+
+## Resources
+
+- [Lux Documentation](https://lux.lumen-labs.org/)
+- [Lux GitHub Repository](https://github.com/lumen-oss/lux)
+- [vfox Documentation](https://vfox.dev/)
+
+## License
+
+Apache 2.0
