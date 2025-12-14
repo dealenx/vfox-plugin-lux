@@ -7,7 +7,7 @@ PLUGIN.name = "lux"
 --- Plugin version
 PLUGIN.version = "0.1.1"
 --- Plugin homepage
-PLUGIN.homepage = "https://github.com/lumen-oss/vfox-plugin-lux"
+PLUGIN.homepage = "https://github.com/dealenx/vfox-plugin-lux"
 --- Plugin license, please choose a correct license according to your needs.
 PLUGIN.license = "Apache 2.0"
 --- Plugin description
@@ -33,7 +33,7 @@ NOTE:
     you can set this address to the manifest file address, so that the plugin can be updated automatically.
 
  --]]
-PLUGIN.manifestUrl = "https://github.com/lumen-oss/vfox-plugin-lux/releases/download/manifest/manifest.json"
+PLUGIN.manifestUrl = "https://github.com/dealenx/vfox-plugin-lux/releases/download/manifest/manifest.json"
 -- Some things that need user to be attention!
 PLUGIN.notes = {
     "The binary is named 'lx', not 'lux'.",

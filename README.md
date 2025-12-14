@@ -9,7 +9,7 @@ A [vfox](https://vfox.dev/) plugin for managing [Lux](https://github.com/lumen-o
 vfox add lux
 
 # Or install from source
-vfox add --source https://github.com/lumen-oss/vfox-plugin-lux/releases/download/latest/vfox-plugin-lux.zip
+vfox add --source https://github.com/dealenx/vfox-plugin-lux/releases/download/latest/vfox-plugin-lux.zip
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ vfox use lux@0.22.2
 
 ```bash
 # Add the plugin from local path or GitHub
-mise plugins install lux https://github.com/lumen-oss/vfox-plugin-lux
+mise plugins install lux https://github.com/dealenx/vfox-plugin-lux
 
 # List available versions
 mise ls-remote lux
